@@ -1,0 +1,15 @@
+{
+	"result" : true,
+	"campoUno" : true,
+	"campoDos" : false,
+	"lista" : [
+		{
+			"nombre" : "Paulino",
+			"apellido" : "Mota"	
+		},
+		{
+			"nombre" : "Emmanuel",
+			"apellido" : "C"	
+		}
+	]
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="AccesoCasosDaoNieblas" class="com.curso.roles3.dao.RolesDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		
+		<property name="qryRoles">
+		   <value>
+		        <![CDATA[
+					SELECT * FROM MTS_CURSO_ROLES		    
+		    	]]>
+		   </value>
+		</property>
+		
+		<property name="qryStatus">
+		   <value>
+		        <![CDATA[
+					SELECT DISTINCT ESTATUS FROM MTS_CURSO_ROLES	    
+		    	]]>
+		   </value>
+		</property>
+		
+		
+		<property name="qryIns">
+		   <value>
+		        <![CDATA[
+					INSERT INTO MTS_CURSO_ROLES (CVE_ROL,DS_ROL, ESTATUS) VALUES(?,?,?)	    
+		    	]]>
+		   </value>
+		</property>
+		
+		
+		<property name="qryUpd">
+		   <value>
+		        <![CDATA[
+					UPDATE MTS_CURSO_ROLES SET DS_ROL=? WHERE CVE_ROL=?    
+		    	]]>
+		   </value>
+		</property>
+		
+		
+		<property name="qryRolEst">
+		   <value>
+		        <![CDATA[
+					SELECT * FROM MTS_CURSO_ROLES WHERE ESTATUS=? 
+		    	]]>
+		   </value>
+		</property>
+		
+		
+	</bean>
+</beans>

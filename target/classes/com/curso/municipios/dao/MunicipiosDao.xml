@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="AccesoMunicipiosDao" class="com.curso.municipios.dao.MunicipioDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		
+		<property name="qryEstados">
+		   <value>
+		        <![CDATA[
+					SELECT * FROM MTS_CURSO_ESTADO	    
+		    	]]>
+		   </value>
+		</property>
+		
+		<property name="qryMunicipios">
+		   <value>
+		        <![CDATA[
+					SELECT * FROM MTS_CURSO_MUNICIPIOS	    
+		    	]]>
+		   </value>
+		</property>
+		
+	    <property name="qryMunicipiosFiltro">
+		   <value>
+		        <![CDATA[
+					SELECT * FROM MTS_CURSO_MUNICIPIOS WHERE CVE_ESTADO=?	    
+		    	]]>
+		   </value>
+		</property>
+		
+		 <property name="qrySecciones">
+		   <value>
+		        <![CDATA[
+					SELECT * FROM MTS_CURSO_SECCIONES	    
+		    	]]>
+		   </value>
+		</property>
+		 <property name="qryGrupos">
+		   <value>
+		        <![CDATA[
+					SELECT * FROM MTS_CURSO_GRUPOS	    
+		    	]]>
+		   </value>
+		</property>
+		<property name="updMunicipios">
+		   <value>
+		        <![CDATA[
+					UPDATE MTS_CURSO_MUNICIPIOS SET CVE_SECCION=?,CVE_GRUPO=?,NOMBRE_MUN=?,CVE_PAIS=? WHERE CVE_MUNICIPIO=?	    
+		    	]]>
+		   </value>
+		</property>
+		<property name="insertMunicipio">
+		   <value>
+		        <![CDATA[
+					INSERT INTO MTS_CURSO_MUNICIPIOS (CVE_MUNICIPIO,CVE_SECCION,CVE_GRUPO,NOMBRE_MUN,CVE_ESTADO,CVE_PAIS) VALUES(?,?,?,?,?,?)    
+		    	]]>
+		   </value>
+		</property>
+		
+		<property name="selectClave">
+		   <value>
+		        <![CDATA[
+					SELECT CVE_MUNICIPIO FROM MTS_CURSO_MUNICIPIOS WHERE CVE_MUNICIPIO=?
+		    	]]>
+		   </value>
+		</property>
+		
+			</bean>
+</beans>

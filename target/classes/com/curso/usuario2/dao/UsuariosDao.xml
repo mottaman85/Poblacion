@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="UsuariosDao" class="com.curso.usuario2.dao.UsuariosDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		
+		<property name="qryUno">
+		   <value>
+		        <![CDATA[
+		        	SELECT CVE_USUARIO,DS_ROL,PASSWORD,SW_ACTIVO,IP_USUARIO  FROM MTS_CURSO_USUARIOS,MTS_CURSO_ROLES WHERE MTS_CURSO_USUARIOS.CVE_ROL=MTS_CURSO_ROLES.CVE_ROL		    
+		    	]]>
+		   </value>
+		</property>
+		
+		<property name="qryDos">
+		   <value>
+		        <![CDATA[
+					SELECT CVE_USUARIO,DS_ROL,PASSWORD,SW_ACTIVO,IP_USUARIO  FROM MTS_CURSO_USUARIOS,MTS_CURSO_ROLES WHERE  MTS_CURSO_USUARIOS.CVE_ROL=MTS_CURSO_ROLES.CVE_ROL	AND MTS_CURSO_ROLES.DS_ROL= ?	    
+		    	]]>
+		   </value>
+		</property>
+		
+		
+		<property name="qryTres">
+		   <value>
+		        <![CDATA[
+					SELECT * FROM  MTS_CURSO_USUARIOS WHERE CVE_USUARIO = ?
+		    	]]>
+		   </value>
+		</property>
+		
+		<property name="qryCuatro">
+		   <value>
+		        <![CDATA[
+					INSER INTO MTS_CURSO_USUARIOS VALUES(?,?,?,?,?)
+		    	]]>
+		   </value>
+		</property>
+		
+		<property name="qryCinco">
+		   <value>
+		        <![CDATA[
+					UPDATE MTS_CURSO_USUARIOS SET CVE_ROL=?,PASSWORD=?,SW_ACTIVO=?,IP_USUARIO=? WHERE CVE_USUARIO=?
+		    	]]>
+		   </value>
+		</property>
+
+		
+	</bean>
+</beans>
